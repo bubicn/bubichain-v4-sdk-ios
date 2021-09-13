@@ -1,0 +1,32 @@
+//
+//  TransactionHistory.m
+//  sdk-ios
+//
+//  Created by dxl on 2018/8/15.
+//  Copyright © 2018 dxl. All rights reserved.
+//
+
+#import "TransactionHistory.h"
+#import "YYModelClass.h"
+
+@implementation TransactionHistory
++ (NSDictionary *)modelCustomPropertyMapper {
+    // value should be Class or Class name.
+    return @{@"actualFee" : @"actual_fee",
+             @"closeTime" : @"close_time",
+             @"contractTxHashes" : @"contract_tx_hashes",
+             @"errorCode" : @"error_code",
+             @"errorDesc" : @"error_desc",
+             @"transactionHash" : @"hash",
+             @"ledgerSeq" : @"ledger_seq",
+             @"txSize" : @"tx_size",
+             @"incomingTime" : @"incoming_time"
+    };
+}
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    // value should be Class or Class name.
+    return @{@"contractTxHashes" : [NSString class],
+             @"signatures" : [SignatureInfo class],
+             @"transaction" : TransactionInfo.class};
+}
+@end
